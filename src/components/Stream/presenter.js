@@ -18,7 +18,7 @@ class Stream extends Component {
   }
 
   render() {
-    const { userStore, trackStore, clientId, onAuth } = this.props;
+    const { userStore, trackStore, clientId, onAuth, onPlay } = this.props;
 
     return (
       <div>
@@ -36,7 +36,7 @@ class Stream extends Component {
               return (
                 <div className="track" key={key}>
                   {track.origin.title}
-                  <button type="button" onClick={() => trackStore.activeTrack = track}>Play</button>
+                  <button type="button" onClick={() => onPlay(track)}>Play</button>
                 </div>
               );
           })
