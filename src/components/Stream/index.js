@@ -12,7 +12,7 @@ function StreamContainer() {
       trackStore={trackStore}
       clientId={CLIENT_ID}
       onAuth={auth}
-      onPlay={(track) => trackStore.activeTrack = track}
+      onPlay={(track) => trackStore.activeTrackId = track.origin.id}
     />
   );
 }

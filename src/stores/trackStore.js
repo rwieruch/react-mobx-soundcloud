@@ -1,13 +1,23 @@
-import { observable } from 'mobx';
+import { observable, computed } from 'mobx';
 
 class TrackStore {
 
   @observable tracks;
-  @observable activeTrack;
+  @observable activeTrackId;
 
   constructor(tracks = []) {
     this.tracks = tracks;
-    this.activeTrack = null;
+    this.activeTrackId = null;
+  }
+
+  @computed get activeTrack() {
+    let activeTrack = null;
+    trackStore.tracks.forEach((track) => {
+      if (track.origin.id === trackStore.activeTrackId) {
+        activeTrack = track;
+      }
+    });
+    return activeTrack;
   }
 
 }
