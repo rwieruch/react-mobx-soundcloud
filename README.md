@@ -4,7 +4,7 @@ The SoundCloud Client in React + MobX - Boilerplate
 
 Refactored from [The SoundCloud Client in React + Redux](http://www.robinwieruch.de/the-soundcloud-client-in-react-redux/)
 
-Tutorial: _pending, stay tuned_
+Tutorial: [MobX React: Simplified State Management in React](http://www.robinwieruch.de/mobx-react)
 
 ## Run
 
