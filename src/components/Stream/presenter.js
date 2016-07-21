@@ -10,7 +10,7 @@ class Stream extends Component {
 
     if (!audioElement) { return; }
 
-    if (this.props.trackStore.activeTrack) {
+    if (this.props.activeTrack) {
       audioElement.play();
     } else {
       audioElement.pause();
@@ -18,21 +18,21 @@ class Stream extends Component {
   }
 
   render() {
-    const { userStore, trackStore, clientId, onAuth, onPlay } = this.props;
+    const { me, tracks, activeTrack, clientId, onAuth, onPlay } = this.props;
 
     return (
       <div>
         <div>
           {
-            userStore.me ?
-              <div>{userStore.me.username}</div> :
+            me ?
+              <div>{me.username}</div> :
               <button onClick={onAuth} type="button">Login</button>
           }
         </div>
         <br/>
         <div>
         {
-          trackStore.tracks.map((track, key) => {
+          tracks.map((track, key) => {
               return (
                 <div className="track" key={key}>
                   {track.origin.title}
@@ -43,8 +43,8 @@ class Stream extends Component {
         }
         </div>
         {
-          trackStore.activeTrack ?
-            <audio id="audio" ref="audio" src={`${trackStore.activeTrack.origin.stream_url}?client_id=${clientId}`}></audio> :
+          activeTrack ?
+            <audio id="audio" ref="audio" src={`${activeTrack.origin.stream_url}?client_id=${clientId}`}></audio> :
             null
         }
       </div>
