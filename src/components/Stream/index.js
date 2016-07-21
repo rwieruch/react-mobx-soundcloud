@@ -2,7 +2,7 @@ import React from 'react';
 import { observer } from 'mobx-react';
 import Stream from './presenter';
 import { CLIENT_ID } from '../../constants/auth';
-import { auth } from '../../actions/auth';
+import { auth } from '../../api/auth';
 import userStore from '../../stores/userStore';
 import trackStore from '../../stores/trackStore';
 
