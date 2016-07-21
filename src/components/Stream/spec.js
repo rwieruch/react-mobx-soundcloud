@@ -5,11 +5,8 @@ import { UserStore } from '../../stores/userStore';
 
 describe('Stream', () => {
 
-  const tracks = [{ origin: { title: 'x' } }, { origin: { title: 'y' } }];
-
   const props = {
-    trackStore: new TrackStore(tracks),
-    userStore: new UserStore(),
+    tracks: [{ origin: { title: 'x' } }, { origin: { title: 'y' } }],
   };
 
   it('shows two elements', () => {
