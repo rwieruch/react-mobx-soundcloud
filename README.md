@@ -8,7 +8,7 @@ Tutorial: [MobX React: Simplified State Management in React](http://www.robinwie
 
 ## Run
 
-- git clone git@github.com:rwieruch/react-mobx-soundcloud.git
+- `git clone git@github.com:rwieruch/react-mobx-soundcloud.git`
 - cd react-mobx-soundcloud
 - npm install
 - npm start
