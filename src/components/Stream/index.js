@@ -1,12 +1,10 @@
 import React from 'react';
-import { observer } from 'mobx-react';
+import { observer, inject } from 'mobx-react';
 import Stream from './presenter';
 import { CLIENT_ID } from '../../constants/auth';
 import { auth } from '../../api/auth';
-import userStore from '../../stores/userStore';
-import trackStore from '../../stores/trackStore';
 
-const StreamContainer = observer(() => {
+const StreamContainer = inject('userStore', 'trackStore')(observer(({ userStore, trackStore }) => {
   return (
     <Stream
       me={userStore.me}
@@ -17,6 +15,6 @@ const StreamContainer = observer(() => {
       onPlay={trackStore.onPlay}
     />
   );
-})
+}))
 
 export default StreamContainer;
