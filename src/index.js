@@ -9,6 +9,9 @@ import Callback from './components/Callback';
 import StreamContainer from './components/Stream';
 import userStore from './stores/userStore';
 import trackStore from './stores/trackStore';
+import { CLIENT_ID, REDIRECT_URI } from './constants/auth';
+
+SC.initialize({ client_id: CLIENT_ID, redirect_uri: REDIRECT_URI });
 
 useStrict(true);
 

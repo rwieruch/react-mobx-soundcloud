@@ -1,10 +1,12 @@
-import { CLIENT_ID, REDIRECT_URI } from '../constants/auth';
+import SC from 'soundcloud';
 import userStore from '../stores/userStore';
 import trackStore from '../stores/trackStore';
 
 export function auth() {
-  SC.initialize({ client_id: CLIENT_ID, redirect_uri: REDIRECT_URI });
-  SC.connect().then(fetchMe);
+  SC.connect().then((session) => {
+    fetchMe(session);
+    fetchStream(session);
+  });
 };
 
 function fetchMe(session) {
@@ -12,11 +14,10 @@ function fetchMe(session) {
     .then((response) => response.json())
     .then((me) => {
       userStore.setMe(me);
-      fetchStream(me, session);
     });
 }
 
-function fetchStream(me, session) {
+function fetchStream(session) {
   fetch(`//api.soundcloud.com/me/activities?limit=20&offset=0&oauth_token=${session.oauth_token}`)
     .then((response) => response.json())
     .then((data) => {
